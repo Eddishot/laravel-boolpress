@@ -21,7 +21,7 @@ class PostController extends Controller
         $postsList= Post::all();
 
         // return $postList;
-        return view("admin.home", compact("postsList"));
+        return view("admin.posts.index", compact("postsList"));
     }
 
     /**
