@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @section("content")
+<button>
+    <a href="{{route("admin.posts.create")}}">crea
+    </a>
+</button>
 
 <table>
     <thead>
