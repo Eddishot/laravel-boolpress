@@ -21,7 +21,7 @@ class PostController extends Controller
         $postsList= Post::all();
 
         // return $postList;
-        return view("admin.posts.index", compact("postsList"));
+        return view("admin.home", compact("postsList"));
     }
 
     /**
@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.post.create");
     }
 
     /**
@@ -42,8 +42,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newPost = Post::create($data);
+        $newPost->save();
+        return redirect()->route("admin.posts.index");
+
+
     }
+
+
 
     /**
      * Display the specified resource.
@@ -51,9 +59,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view ("admin.posts.show", compact("post"));
+
     }
 
     /**
@@ -64,7 +73,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('admin.post.edit', compact('post'));
     }
 
     /**
@@ -74,9 +84,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        $post->update($data);
+
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
@@ -87,6 +101,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('admin.posts.index');
     }
+    
 }
