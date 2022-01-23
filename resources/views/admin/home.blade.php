@@ -23,6 +23,7 @@
 <h1>
     prova
 </h1>
+<a class="btn btn-primary" href="{{route("admin.posts.index")}}">Clicca qui per vedere i tuoi post</a>
 
 @endsection
  

@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h1>{{$post->title}}</h1>
-        <p>{{$post->content}}</p>
+        <h1> titolo:{{$post->title}} </h1>
+        <p>testo:{{$post->content}}</p>
 
         <a class="btn btn-success" href="{{route('admin.posts.edit', $post->id)}}">Change Post</a>
 
@@ -13,4 +13,5 @@
             <button class="btn btn-danger" type="submit">Delete Post</button>
         </form>
     </div>
+    <a class="btn btn-primary" href="{{ route('admin.posts.index') }}">Torna nella tua lista</a>
 @endsection

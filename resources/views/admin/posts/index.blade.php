@@ -2,16 +2,16 @@
 
 @section("content")
 <button>
-    <a href="{{route("admin.posts.create")}}">crea
+    <a class="btn btn-primary" href="{{route("admin.posts.create")}}">crea
     </a>
 </button>
 
-<table>
+{{-- <table>
     <thead>
         <tr>
             <td>id</td>
             <td>title</td>
-            <td>dettagli</td>
+            <td>content</td>
         </tr>
         
     </thead>
@@ -23,10 +23,42 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->content}}</td><br>
             </tr>
+            <a href=" {{ route('admin.posts.show', $post->id)}} ">dettagli</a>
             
         @endforeach
     </tbody>
-</table>
+</table> --}}
+
+<ul class="list-group">
+    @foreach($postsList as $post)
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+        <div>
+            {{$post->title}}<br>
+           <br>
+           {{-- {{ $post->user->name}} --}}
+           
+        </div>
+  
+        <div>
+            <a href="{{route('admin.posts.show', $post->id)}}"
+              class="btn btn-link">
+              Mostra
+            </a>
+            {{-- <a href="{{route("admin.posts.edit", $post->id)}}"
+              class="btn btn-link">
+              Modifica
+            </a> --}}
+        </div>
+        <a href="{{route("admin.posts.edit", $post->id)}}"
+            class="btn btn-link">
+            Modifica
+          </a>
+        
+
+    </li>
+    @endforeach
+
+</ul>
 
 
 @endsection
