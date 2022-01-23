@@ -1,6 +1,8 @@
 
 <template>
-  <!-- <h1>{{message}}</h1> -->
+<div>
+  <h1>{{message}}</h1>
+  
    <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
@@ -11,15 +13,25 @@
         </div>
       </div>
     </div>
+</div>
+  
+  
 </template>
 
 <script>
 export default {
     name: "App", 
+    components: {Post},
     data(){
         return{
             message: "Welcome to the Main Page",
+            postList:[],
         };
+    },
+    mounted(){
+       axios.get("/api/all-posts").then((resp) => {
+      this.postsList = resp.data;
+       });
     },
 };
 </script>

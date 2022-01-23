@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-    <div  id="app"></div>
+    <div  id="radice"></div>
 </body>
 </html>    
     
