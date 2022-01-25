@@ -29,7 +29,7 @@
     </tbody>
 </table> --}}
 
-<ul class="list-group">
+<ul id="app"  class="list-group">
     @foreach($postsList as $post)
     <li class="list-group-item d-flex align-items-center justify-content-between">
         <div>

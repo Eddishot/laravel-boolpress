@@ -69,6 +69,7 @@ class PostsTableSeeder extends Seeder
         foreach($PostList as $post){
 
             $newPost= new Post;
+            $newPost->user_id=1;
             $newPost->title= $post["title"];
             $newPost->content=$post["content"];
             $newPost->save();

@@ -19,17 +19,18 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     name: "App", 
-    components: {Post},
+    // components: {Post},
     data(){
         return{
             message: "Welcome to the Main Page",
-            postList:[],
+            postsList:[],
         };
     },
     mounted(){
-       axios.get("/api/all-posts").then((resp) => {
+       axios.get("/api/posts").then((resp) => {
       this.postsList = resp.data;
        });
     },

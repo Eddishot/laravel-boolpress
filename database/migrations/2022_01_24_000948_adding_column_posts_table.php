@@ -14,13 +14,19 @@ class AddingColumnPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table){
-            $table->unsignedBigInteger('user_id');
+        // Schema::table('posts', function (Blueprint $table){
+        //     $table->unsignedBigInteger('user_id');
 
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users');
+        //     $table->foreign('user_id')
+        //     ->references('id')
+        //     ->on('users');
+        // });
+            
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreignId('category_id')->nullable()
+                ->constrained();
         });
+
          
  
     }
@@ -33,5 +39,11 @@ class AddingColumnPostsTable extends Migration
     public function down()
     {
         // $table->dropColumn('user_id');
+
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign("[category_id]");
+            $table->dropColumn('category_id');
+
+        });
     }
 }
