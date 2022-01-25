@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string("title", 100);
             $table->text("content");
-            // $table->string("name",100);
+            $table->string("name",100);
             $table->date("publish_at")->default(now());
             $table->timestamps();
         });

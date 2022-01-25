@@ -2,6 +2,8 @@
 <template>
 <div>
   <h1>{{message}}</h1>
+  <a href="/login">login</a>
+  <a href="/register">register</a>
   
    <div class="container">
       <div class="row justify-content-center">

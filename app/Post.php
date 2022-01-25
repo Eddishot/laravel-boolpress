@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ["name", "title", "content", "user_id", "category_id"];
+    protected $fillable = ["name", "title", "content", "category_id"];
 
 
-    public function postsUser(){
-        return $this->belongsto("App\User");
+    public function user(){
+        return $this->belongsTo("App\User");
     }
 
 

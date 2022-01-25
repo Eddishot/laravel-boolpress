@@ -1930,6 +1930,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -2436,6 +2438,10 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h1", [_vm._v(_vm._s(_vm.message))]),
+    _vm._v(" "),
+    _c("a", { attrs: { href: "/login" } }, [_vm._v("login")]),
+    _vm._v(" "),
+    _c("a", { attrs: { href: "/register" } }, [_vm._v("register")]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [

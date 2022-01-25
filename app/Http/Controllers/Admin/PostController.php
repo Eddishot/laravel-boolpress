@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\facades\Auth;
 
 
 class PostController extends Controller
@@ -43,8 +44,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        $newPost = Post::create($data);
+        $newPost= new Post;
+        // $newPost = Post::create($data);
+        $newPost->fill($request-> all());
+        $newPost->user_id=Auth::user()->id;
+        
         $newPost->save();
         return redirect()->route("admin.posts.index");
 

@@ -6,10 +6,10 @@
             @csrf
 
             <div class="text-start mt-5">
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="field_name" class="form-label">Author</label>
                     <input type="text" class="form-control" name="name" id="field_title">
-                </div>
+                </div> --}}
     
                 <div class="mb-3">
                     <label for="field_title" class="form-label">Title</label>
